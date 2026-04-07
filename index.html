@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="nl" id="html-root">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raad Het Woord</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="live-region" aria-live="polite" aria-atomic="true"></div>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<section class="screen active" id="screen-home" aria-label="Startscherm">
+
+  <h1 class="home-title" data-i18n="title">Raad Het<br>Woord 🚀</h1>
+  <p class="home-subtitle" data-i18n="subtitle">Kies een niveau om te beginnen</p>
+
+  <div class="rocket-hero" aria-hidden="true">
+    <svg width="120" height="180" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="60" cy="158" rx="12" ry="8" fill="#FFD166" opacity="0.6"/>
+      <ellipse cx="60" cy="152" rx="7" ry="5" fill="#FF9F1C" opacity="0.8"/>
+      <path d="M36 130 L20 155 L46 140 Z" fill="#4A90D9" opacity="0.9"/>
+      <path d="M84 130 L100 155 L74 140 Z" fill="#4A90D9" opacity="0.9"/>
+      <rect x="42" y="60" width="36" height="80" rx="6" fill="#E8EDF5"/>
+      <circle cx="60" cy="95" r="12" fill="#4A90D9" opacity="0.9"/>
+      <circle cx="60" cy="95" r="8" fill="#A8D0F5"/>
+      <circle cx="57" cy="92" r="2.5" fill="white" opacity="0.7"/>
+      <path d="M42 65 Q60 10 78 65 Z" fill="#EF476F"/>
+      <rect x="42" y="112" width="36" height="6" rx="2" fill="#4A90D9" opacity="0.5"/>
+      <rect x="28" y="158" width="64" height="8" rx="4" fill="#8B9BB4" opacity="0.6"/>
+      <rect x="38" y="150" width="8" height="12" rx="3" fill="#8B9BB4" opacity="0.5"/>
+      <rect x="74" y="150" width="8" height="12" rx="3" fill="#8B9BB4" opacity="0.5"/>
+    </svg>
+  </div>
+
+  <div class="level-section">
+    <p class="level-label" data-i18n="levelLabel">Niveau</p>
+    <div class="level-grid">
+      <button class="level-btn" data-level="easy">
+        <span class="emoji">⭐</span>
+        <span data-i18n="easy">Makkelijk</span>
+        <span class="desc" data-i18n="easyDesc">Korte woorden</span>
+      </button>
+      <button class="level-btn" data-level="medium">
+        <span class="emoji">⭐⭐</span>
+        <span data-i18n="medium">Normaal</span>
+        <span class="desc" data-i18n="mediumDesc">Wat langer</span>
+      </button>
+      <button class="level-btn" data-level="hard">
+        <span class="emoji">⭐⭐⭐</span>
+        <span data-i18n="hard">Moeilijk</span>
+        <span class="desc" data-i18n="hardDesc">Langere woorden</span>
+      </button>
+      <button class="level-btn" data-level="expert">
+        <span class="emoji">🌟</span>
+        <span data-i18n="expert">Expert</span>
+        <span class="desc" data-i18n="expertDesc">Uitdagend!</span>
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<section class="screen" id="screen-game" aria-label="Speel het spel">
+
+  <div class="game-header">
+    <button class="back-btn" id="btn-back" aria-label="Terug naar startscherm">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <span class="category-badge" id="category-label"></span>
+    <button class="hint-btn" id="btn-hint" aria-label="Hint tonen">💡</button>
+  </div>
+
+  <div class="hint-box" id="hint-box" role="status"></div>
+
+  <div class="rocket-stage-wrap" id="rocket-wrap" aria-hidden="true">
+    <div class="rocket-svg-wrap" id="rocket-svg-wrap">
+      <svg viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+        <g class="rp launch-pad">
+          <rect x="20" y="178" width="80" height="10" rx="5" fill="#8B9BB4" opacity="0.7"/>
+          <rect x="32" y="165" width="10" height="17" rx="4" fill="#8B9BB4" opacity="0.55"/>
+          <rect x="78" y="165" width="10" height="17" rx="4" fill="#8B9BB4" opacity="0.55"/>
+        </g>
+
+        <g class="rp" id="rp-body">
+          <rect x="44" y="75" width="32" height="95" rx="7" fill="#E8EDF5"/>
+        </g>
+
+        <g class="rp" id="rp-fin-l">
+          <path d="M44 138 L26 168 L48 152 Z" fill="#4A90D9" opacity="0.85"/>
+        </g>
+
+        <g class="rp" id="rp-fin-r">
+          <path d="M76 138 L94 168 L72 152 Z" fill="#4A90D9" opacity="0.85"/>
+        </g>
+
+        <g class="rp" id="rp-window">
+          <circle cx="60" cy="112" r="13" fill="#4A90D9" opacity="0.9"/>
+          <circle cx="60" cy="112" r="9" fill="#A8D0F5"/>
+          <circle cx="57" cy="109" r="3" fill="white" opacity="0.6"/>
+        </g>
+
+        <g class="rp" id="rp-nose">
+          <path d="M44 80 Q60 22 76 80 Z" fill="#EF476F"/>
+        </g>
+
+        <g class="rp" id="rp-stripe">
+          <rect x="44" y="128" width="32" height="7" rx="3" fill="#4A90D9" opacity="0.45"/>
+          <rect x="44" y="148" width="32" height="7" rx="3" fill="#4A90D9" opacity="0.45"/>
+        </g>
+
+        <g class="rp" id="rp-flame">
+          <ellipse cx="60" cy="174" rx="11" ry="7" fill="#FFD166" opacity="0.7"/>
+          <ellipse cx="60" cy="170" rx="6" ry="4" fill="#FF9F1C" opacity="0.9"/>
+        </g>
+
+      </svg>
+
+      <div class="exhaust" aria-hidden="true">
+        <div class="exhaust-dot" style="--d: 0s"></div>
+        <div class="exhaust-dot" style="--d: 0.08s"></div>
+        <div class="exhaust-dot" style="--d: 0.16s"></div>
+      </div>
+    </div>
+
+    <div class="mistakes-row" id="mistakes-row" role="status" aria-label="Fouten"></div>
+  </div>
+
+  <div class="word-display" id="word-display" role="group" aria-label="Het woord"></div>
+
+  <div class="keyboard" id="keyboard" role="group" aria-label="Letters">
+    <div class="keyboard-row">
+      <button class="key" data-letter="q">Q</button>
+      <button class="key" data-letter="w">W</button>
+      <button class="key" data-letter="e">E</button>
+      <button class="key" data-letter="r">R</button>
+      <button class="key" data-letter="t">T</button>
+      <button class="key" data-letter="y">Y</button>
+      <button class="key" data-letter="u">U</button>
+      <button class="key" data-letter="i">I</button>
+      <button class="key" data-letter="o">O</button>
+      <button class="key" data-letter="p">P</button>
+    </div>
+    <div class="keyboard-row">
+      <button class="key" data-letter="a">A</button>
+      <button class="key" data-letter="s">S</button>
+      <button class="key" data-letter="d">D</button>
+      <button class="key" data-letter="f">F</button>
+      <button class="key" data-letter="g">G</button>
+      <button class="key" data-letter="h">H</button>
+      <button class="key" data-letter="j">J</button>
+      <button class="key" data-letter="k">K</button>
+      <button class="key" data-letter="l">L</button>
+    </div>
+    <div class="keyboard-row">
+      <button class="key" data-letter="z">Z</button>
+      <button class="key" data-letter="x">X</button>
+      <button class="key" data-letter="c">C</button>
+      <button class="key" data-letter="v">V</button>
+      <button class="key" data-letter="b">B</button>
+      <button class="key" data-letter="n">N</button>
+      <button class="key" data-letter="m">M</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="screen" id="screen-win" aria-label="Gewonnen">
+  <div class="end-card">
+    <div class="end-emoji">🚀</div>
+    <h2 class="end-title" data-i18n="winTitle">Gefeliciteerd!</h2>
+    <p class="end-msg" data-i18n="winSubtitle">Jij hebt het woord geraden:</p>
+    <p class="end-word" id="win-word"></p>
+    <p class="end-msg" id="win-msg"></p>
+    <button class="btn-primary"   id="btn-win-again" data-i18n="playAgain">Nog een woord! 🎉</button>
+    <button class="btn-secondary" id="btn-win-home"  data-i18n="backHome">Terug naar start</button>
+  </div>
+</section>
+
+<section class="screen" id="screen-lose" aria-label="Geprobeerd">
+  <div class="end-card">
+    <div class="end-emoji">🌍</div>
+    <h2 class="end-title" data-i18n="loseTitle">Bijna!</h2>
+    <p class="end-msg" data-i18n="loseSubtitle">Het woord was:</p>
+    <p class="end-word" id="lose-word"></p>
+    <p class="end-msg" data-i18n="loseTryAgain">Probeer het nog een keer, je kunt het!</p>
+    <button class="btn-primary"   id="btn-lose-again" data-i18n="tryAgain">Opnieuw proberen! 💪</button>
+    <button class="btn-secondary" id="btn-lose-home"  data-i18n="backHome">Terug naar start</button>
+  </div>
+</section>
+
+<script src="js/translations.js"></script>
+<script src="js/words.js"></script>
+<script src="js/game.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
